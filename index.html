@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRACTICES - VILLARREAL SEBERIAN RICARDO</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Barra de navegación superior */
+        header {
+            background-color: #252526;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333333;
+        }
+
+        .header-title h1 {
+            font-size: 1.1rem;
+            color: #4ec9b0;
+            letter-spacing: 1px;
+        }
+
+        .header-title h2 {
+            font-size: 0.85rem;
+            color: #aaaaaa;
+            font-weight: normal;
+        }
+
+        .btn-back {
+            background-color: #333333;
+            color: #ffffff;
+            border: 1px solid #555555;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #0e639c;
+            border-color: #1177bb;
+        }
+
+        /* Área principal de contenido */
+        main {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Pantalla de Menú Principal */
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            gap: 20px;
+            background-color: #1e1e1e;
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .menu-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            border-bottom: 2px solid #0e639c;
+            padding-bottom: 8px;
+        }
+
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .menu-btn {
+            background-color: #2d2d2d;
+            color: #ffffff;
+            border: 1px solid #444444;
+            padding: 14px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .menu-btn:hover {
+            background-color: #0e639c;
+            border-color: #1177bb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Visor Frame */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* Utilidad para ocultar elementos */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado con tu nombre y botón de regreso -->
+    <header>
+        <div class="header-title">
+            <h1>VILLARREAL SEBERIAN RICARDO</h1>
+            <h2>PRACTICAS DIAGRAMAS</h2>
+        </div>
+        <button class="btn-back" onclick="showMenu()">← Volver al Menú</button>
+    </header>
+
+    <main>
+        <!-- Pantalla Principal: Menú de Selección -->
+        <div id="main-menu" class="menu-container">
+            <h2 class="menu-title">Selecciona un Diagrama</h2>
+            <div class="menu-buttons">
+                <button class="menu-btn" onclick="openDiagram('villarreal_agencia_ia.html')">1. Agencia IA</button>
+                <button class="menu-btn" onclick="openDiagram('villarreal_seberian_dconseguir_clientes.html')">2. Conseguir Clientes</button>
+                <button class="menu-btn" onclick="openDiagram('villarreal_seberian_ganar_dinero.html')">3. Ganar Dinero</button>
+            </div>
+        </div>
+
+        <!-- Contenedor iframe sin diagrama cargado inicialmente -->
+        <iframe id="diagram-frame" class="hidden" src="about:blank"></iframe>
+    </main>
+
+    <script>
+        const menu = document.getElementById('main-menu');
+        const frame = document.getElementById('diagram-frame');
+
+        // Función para abrir el diagrama seleccionado
+        function openDiagram(url) {
+            frame.src = url;
+            menu.classList.add('hidden');
+            frame.classList.remove('hidden');
+        }
+
+        // Función para regresar al menú principal
+        function showMenu() {
+            frame.src = 'about:blank'; // Limpia el visor
+            frame.classList.add('hidden');
+            menu.classList.remove('hidden');
+        }
+    </script>
+
+</body>
+</html>
